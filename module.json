@@ -1,0 +1,11 @@
+{
+    "name": "Referral",
+    "alias": "referral",
+    "description": "Referral/Affiliate module (codes, referrals, commission rules).",
+    "keywords": ["spine", "referral", "commission"],
+    "priority": 0,
+    "providers": [
+        "Modules\\Referral\\Providers\\ReferralServiceProvider"
+    ],
+    "files": []
+}

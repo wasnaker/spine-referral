@@ -1,0 +1,21 @@
+{
+    "name": "wasnaker/spine-referral",
+    "description": "Referral/Affiliate module for Spine (wasnaker-core).",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Modules\\Referral\\": ""
+        }
+    },
+    "require": {
+        "php": "^8.4"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\Referral\\Providers\\ReferralServiceProvider"
+            ]
+        }
+    }
+}
