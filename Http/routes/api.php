@@ -14,6 +14,9 @@ Route::prefix('api/v1')->middleware('auth:sanctum')->group(function () {
 
     Route::prefix('referrals')->group(function () {
         Route::get('/', [ReferralController::class, 'referrals'])->middleware('permission:referral:view');
+        // Self-service utk tab Profile "My Referral": data milik user login,
+        // tanpa permission gate (data di-scope user id di controller).
+        Route::get('/me', [ReferralController::class, 'me']);
     });
 
     Route::prefix('commission-rules')->group(function () {

@@ -109,6 +109,35 @@ class ReferralController extends Controller
     }
 
     /**
+     * My Referral — tab Profile (self-service).
+     * Data milik user login: kode + relasi referral (yang dia ajak).
+     */
+    public function me(Request $request): JsonResponse
+    {
+        $user = $request->user();
+
+        $code = ReferralCode::where('user_id', $user->id)->first();
+
+        $referrals = Referral::with(['referred:id,name,email', 'code:id,code'])
+            ->where('referrer_id', $user->id)
+            ->orderByDesc('id')
+            ->get();
+
+        return response()->json([
+            'data' => [
+                'code'      => $code ? [
+                    'code'              => $code->code,
+                    'is_active'         => $code->is_active,
+                    'terms_accepted_at' => $code->terms_accepted_at,
+                    'created_at'        => $code->created_at,
+                ] : null,
+                'referrals' => $referrals,
+                'total'     => $referrals->count(),
+            ],
+        ]);
+    }
+
+    /**
      * Aturan komisi.
      */
     public function rules(): JsonResponse

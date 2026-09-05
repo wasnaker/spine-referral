@@ -40,6 +40,62 @@ return [
         ],
     ],
 
+    'profile_tabs' => [
+        [
+            'slug'       => 'my-referral',
+            'label'      => 'My Referral',
+            'icon'       => '🔗',
+            'href'       => '/profile/my-referral',
+            'position'   => 60,
+            'permission' => 'referral:view',
+        ],
+    ],
+
+    'settings' => [
+        [
+            'slug'     => 'referral',
+            'label'    => 'Referral',
+            'icon'     => '🔗',
+            'position' => 50,
+            'fields'   => [
+                [
+                    'key'     => 'referral_commission_percent',
+                    'label'   => 'Komisi Default (%)',
+                    'type'    => 'number',
+                    'default' => '10',
+                ],
+                [
+                    'key'     => 'referral_commission_fixed',
+                    'label'   => 'Komisi Flat (Rp)',
+                    'type'    => 'number',
+                    'default' => '25000',
+                ],
+                [
+                    'key'     => 'referral_hold_days',
+                    'label'   => 'Hold Period (hari)',
+                    'type'    => 'number',
+                    'default' => '7',
+                ],
+                [
+                    'key'     => 'referral_min_withdrawal',
+                    'label'   => 'Minimal Pencairan (Rp)',
+                    'type'    => 'number',
+                    'default' => '50000',
+                ],
+                [
+                    'key'     => 'referral_commission_type',
+                    'label'   => 'Tipe Komisi Default',
+                    'type'    => 'select',
+                    'options' => [
+                        ['value' => 'percentage', 'label' => 'Persentase'],
+                        ['value' => 'fixed',      'label' => 'Nominal Tetap'],
+                    ],
+                    'default' => 'percentage',
+                ],
+            ],
+        ],
+    ],
+
     'rbac' => [
         'permissions' => [
             'referral:view',
