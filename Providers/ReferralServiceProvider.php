@@ -24,13 +24,13 @@ class ReferralServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
 
         // Referral lifecycle hooks
-        Event::listen(EntityCreated::class, LogReferralActivity::class);
-        Event::listen(EntityUpdated::class, LogReferralActivity::class);
-        Event::listen(EntityDeleted::class, LogReferralActivity::class);
+        Event::listen(EntityCreated::class, LogReferralActivity::class . '@created');
+        Event::listen(EntityUpdated::class, LogReferralActivity::class . '@updated');
+        Event::listen(EntityDeleted::class, LogReferralActivity::class . '@deleted');
 
         // ReferralCode lifecycle hooks
-        Event::listen(EntityCreated::class, LogReferralCodeActivity::class);
-        Event::listen(EntityUpdated::class, LogReferralCodeActivity::class);
-        Event::listen(EntityDeleted::class, LogReferralCodeActivity::class);
+        Event::listen(EntityCreated::class, LogReferralCodeActivity::class . '@created');
+        Event::listen(EntityUpdated::class, LogReferralCodeActivity::class . '@updated');
+        Event::listen(EntityDeleted::class, LogReferralCodeActivity::class . '@deleted');
     }
 }
