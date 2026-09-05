@@ -59,6 +59,18 @@ return [
             'position' => 50,
             'fields'   => [
                 [
+                    'key'     => 'referral_start_number',
+                    'label'   => 'Start Number',
+                    'type'    => 'number',
+                    'default' => '90104',
+                ],
+                [
+                    'key'     => 'referral_code_length',
+                    'label'   => 'Code Length',
+                    'type'    => 'number',
+                    'default' => '4',
+                ],
+                [
                     'key'     => 'referral_commission_percent',
                     'label'   => 'Komisi Default (%)',
                     'type'    => 'number',
