@@ -118,7 +118,13 @@ return [
              'permissions' => ['referral:*']],
         ],
         'grants' => [
-            'staff' => ['referral:view'],
+            'staff'            => ['referral:view'],
+            'customer'         => ['referral:view'],
+            'surveyor'         => ['referral:view'],
+            'association'      => ['referral:view'],
+            'agency'           => ['referral:view'],
+            'referral-admin'   => ['referral:view'],
+            'platform-admin'   => ['referral:view'],
         ],
     ],
 ];
