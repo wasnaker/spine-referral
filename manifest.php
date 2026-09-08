@@ -71,6 +71,12 @@ return [
                     'default' => '4',
                 ],
                 [
+                    'key'     => 'referral_user_start_number',
+                    'label'   => 'User Start Number',
+                    'type'    => 'number',
+                    'default' => '44444',
+                ],
+                [
                     'key'     => 'referral_commission_percent',
                     'label'   => 'Komisi Default (%)',
                     'type'    => 'number',
