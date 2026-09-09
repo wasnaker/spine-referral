@@ -71,6 +71,12 @@ return [
                     'default' => '4',
                 ],
                 [
+                    'key'     => 'referral_code_on_registration',
+                    'label'   => 'Kode Referral di Registrasi',
+                    'type'    => 'checkbox',
+                    'default' => '0',
+                ],
+                [
                     'key'     => 'referral_user_start_number',
                     'label'   => 'User Start Number',
                     'type'    => 'number',
@@ -120,6 +126,8 @@ return [
             'referral:manage',
         ],
         'roles' => [
+            ['name' => 'referral', 'label' => 'Referral',
+             'permissions' => ['referral:view']],
             ['name' => 'referral-admin', 'label' => 'Referral Admin',
              'permissions' => ['referral:*']],
         ],
