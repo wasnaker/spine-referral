@@ -6,6 +6,7 @@ namespace Modules\Referral\Providers;
 
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
+use Modules\Referral\Listeners\AssignReferralRoleOnCodeCreated;
 use Modules\Referral\Listeners\LogReferralActivity;
 use Modules\Referral\Listeners\LogReferralCodeActivity;
 use Spine\Events\EntityCreated;
@@ -32,5 +33,8 @@ class ReferralServiceProvider extends ServiceProvider
         Event::listen(EntityCreated::class, LogReferralCodeActivity::class . '@created');
         Event::listen(EntityUpdated::class, LogReferralCodeActivity::class . '@updated');
         Event::listen(EntityDeleted::class, LogReferralCodeActivity::class . '@deleted');
+
+        // Kode referral dibuat -> user pemilik resmi referrer (role referral).
+        Event::listen(EntityCreated::class, AssignReferralRoleOnCodeCreated::class . '@created');
     }
 }
